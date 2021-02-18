@@ -13,7 +13,8 @@ register = template.Library()
 OUTPUT_FILE = 'file'
 OUTPUT_INLINE = 'inline'
 OUTPUT_PRELOAD = 'preload'
-OUTPUT_MODES = (OUTPUT_FILE, OUTPUT_INLINE, OUTPUT_PRELOAD)
+OUTPUT_PRELOAD_ASYNC = 'preload_async'
+OUTPUT_MODES = (OUTPUT_FILE, OUTPUT_INLINE, OUTPUT_PRELOAD, OUTPUT_PRELOAD_ASYNC)
 
 
 class CompressorMixin(object):

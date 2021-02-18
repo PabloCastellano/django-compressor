@@ -195,6 +195,14 @@ class CompressorTestCase(SimpleTestCase):
         out = '<link rel="preload" href="/static/CACHE/css/58a8c0714e59.css" as="style" />'
         self.assertEqual(out, self.css_node.output(mode="preload"))
 
+    def test_css_preload_async_output(self):
+        # this needs to have the same hash as in the test above
+        out = (
+            """<link rel="preload" href="/static/CACHE/css/58a8c0714e59.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">"""
+            """<noscript><link rel="stylesheet" href="/static/CACHE/css/58a8c0714e59.css" crossorigin="anonymous"></noscript>"""
+        )
+        self.assertEqual(out, self.css_node.output(mode="preload_async"))
+
     def test_js_split(self):
         out = [
             (
